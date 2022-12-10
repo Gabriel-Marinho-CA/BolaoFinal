@@ -25,20 +25,20 @@ public class SelecaoController {
         List<SelecaoModel> selecoes = (List<SelecaoModel>) repo.findAll();
         model.addAttribute("selecoes", selecoes);
 
-        return "fragments/selecoes/index";
+        return "index";
     }
 
-    @PostMapping(value = "/addselecao")
+    @PostMapping("/addselecao")
     public String addSelecao(SelecaoModel selecao, Model model, BindingResult result) {
 
         if (result.hasErrors()) {
             return "/selecoes";
         }
+        model.addAttribute("selecao", selecao);
 
         repo.save(selecao);
 
         return "/selecoes";
-
     }
 
 }
