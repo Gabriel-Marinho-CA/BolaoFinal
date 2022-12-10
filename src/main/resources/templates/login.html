@@ -1,77 +1,110 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 
-<head th:replace="~{layout::head}"></head>
+    <head th:replace="~{layout::head}">
 
-<body class="bg-gradient-primary">
+    </head>
 
-    <div class="container">
+    <body class="bg-gradient-primary">
 
-        <!-- Outer Row -->
-        <div class="row justify-content-center">
+        <div class="container loginPage" style="height:100vh">
 
-            <div class="col-xl-10 col-lg-12 col-md-9">
+            <!-- Outer Row -->
+            <div class="row justify-content-center" style="height:
+                100%;align-items: center;">
 
-                <div class="card o-hidden border-0 shadow-lg my-5">
-                    <div class="card-body p-0">
-                        <!-- Nested Row within Card Body -->
-                        <div class="row">
-                            <div class="col-lg-6 d-none d-lg-block bg-login-image"></div>
-                            <div class="col-lg-6">
-                                <div class="p-5">
-                                    <div class="text-center">
-                                        <img src="img/logoUVV.png" alt="logo" style="height: 9vh">
-                                        <h1 class="h4 text-gray-900 mb-4">Bolão da Copa 2022</h1>
-                                    </div>
-                                    <form class="user">
-                                        <div class="form-group">
-                                            <input type="email" class="form-control form-control-user"
-                                                id="exampleInputEmail" aria-describedby="emailHelp"
-                                                placeholder="Entre com seu e-mail">
+                <div class="col-xl-10 col-lg-12 col-md-9" style="box-shadow: 0px
+                    3px 6px #000;">
+
+                    <div class="card o-hidden border-0 shadow-lg my-5">
+                        <div class="card-body loginCard p-0" style="">
+                            <!-- Nested Row within Card Body -->
+                            <div class="row">
+                                <div class="col-lg-6 d-none d-lg-block
+                                    bg-login-image"></div>
+                                <div class="col-lg-6">
+                                    <div class="p-5">
+                                        <div class="text-center">
+                                            <img src="img/logoUVV.png"
+                                                alt="logo" style="height: 9vh">
+                                            <h1 class="h4 text-gray-900 mb-4">Bolão
+                                                da Copa 2022</h1>
                                         </div>
-                                        <div class="form-group">
-                                            <input type="password" class="form-control form-control-user"
-                                                id="exampleInputPassword" placeholder="Senha">
-                                        </div>
-                                        <div class="form-group">
-                                            <div class="custom-control custom-checkbox small">
-                                                <input type="checkbox" class="custom-control-input" id="customCheck">
-                                                <label class="custom-control-label" for="customCheck">Lembrar-me</label>
+                                        <form class="user" action="/trylogin"
+                                            method="POST">
+                                            <div class="text-center"
+                                                style="margin-top: 50px">
+                                                <h1 class="h4 text-gray-900
+                                                    mb-4">Bolão copa do mundo</h1>
                                             </div>
+
+                                            <div th:if="${error != null}"
+                                                th:text="${error}" class="alert
+                                                alert-danger" role="alert"></div>
+                                            <div class="form-group">
+                                                <input type="email"
+                                                    class="form-control
+                                                    form-control-user"
+                                                    id="email" name="email"
+                                                    aria-describedby="emailHelp"
+                                                    placeholder="Email">
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="password"
+                                                    class="form-control
+                                                    form-control-user"
+                                                    id="password"
+                                                    name="password"
+                                                    placeholder="Senha">
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="custom-control
+                                                    custom-checkbox small">
+                                                    <input type="checkbox"
+                                                        class="custom-control-input"
+                                                        name="remember"
+                                                        id="remember">
+                                                    <label
+                                                        class="custom-control-label"
+                                                        for="remember">Lembrar-me</label>
+                                                </div>
+                                            </div>
+                                            <button class="btn btn-primary
+                                                btn-user btn-block">
+                                                Login
+                                            </button>
+                                        </form>
+                                        <hr>
+                                        <div class="text-center">
+                                            <a class="small"
+                                                href="/forgot-password">Esqueceu
+                                                sua senha?</a>
                                         </div>
-                                        <a href="/" class="btn btn-primary btn-user btn-block">
-                                            Login
-                                        </a>
-                                    </form>
-                                    <hr>
-                                    <div class="text-center">
-                                        <a class="small" href="/forgot-password">Esqueceu sua senha?</a>
-                                    </div>
-                                    <div class="text-center">
-                                        <a class="small" href="/register">Cadastre-se!</a>
+                                        <div class="text-center">
+                                            <a class="small" href="/register">Cadastre-se!</a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+
                 </div>
 
             </div>
 
         </div>
 
-    </div>
+        <!-- Bootstrap core JavaScript-->
+        <script src="vendor/jquery/jquery.min.js"></script>
+        <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-    <!-- Bootstrap core JavaScript-->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <!-- Core plugin JavaScript-->
+        <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 
-    <!-- Core plugin JavaScript-->
-    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+        <!-- Custom scripts for all pages-->
+        <script src="js/sb-admin-2.min.js"></script>
 
-    <!-- Custom scripts for all pages-->
-    <script src="js/sb-admin-2.min.js"></script>
-
-</body>
+    </body>
 
 </html>

@@ -1,5 +1,7 @@
 package com.otaviolube.bolao.controllers;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,18 +19,19 @@ public class SelecaoController {
     SelecaoRepository repo;
 
     @GetMapping(value = "/selecoes")
-    public String getSelecoes(Model model){
+    public String getSelecoes(Model model) {
 
         model.addAttribute("page", "selecoes");
-        model.addAttribute("selecoes", repo.findAll());
+        List<SelecaoModel> selecoes = (List<SelecaoModel>) repo.findAll();
+        model.addAttribute("selecoes", selecoes);
 
-        return "index";
+        return "fragments/selecoes/index";
     }
 
     @PostMapping(value = "/addselecao")
-    public String addSelecao(SelecaoModel selecao, Model model, BindingResult result){
+    public String addSelecao(SelecaoModel selecao, Model model, BindingResult result) {
 
-        if(result.hasErrors()){
+        if (result.hasErrors()) {
             return "/selecoes";
         }
 

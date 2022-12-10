@@ -8,21 +8,31 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "Usuarios")
-public class UserModel {
+@Table(name = "administradores")
+public class Administrador {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
 
-    @Column(nullable = false)
+    private int id;
+
+    @Column(name = "nome")
     private String nome;
 
-    @Column(unique = true, nullable = false)
+    @Column(name = "email")
     private String email;
 
-    @Column(nullable = false)
-    private String password;
+    @Column(name = "senha")
+    private String senha;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public String getNome() {
         return nome;
@@ -40,13 +50,12 @@ public class UserModel {
         this.email = email;
     }
 
-    public String getPassword() {
-        return password;
+    public String getSenha() {
+        return senha;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setSenha(String senha) {
+        this.senha = senha;
     }
-
 
 }
